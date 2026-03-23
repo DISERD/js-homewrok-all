@@ -5,30 +5,33 @@ while (i <= 10) {
 }
 
 for (let j = 2; j <= 20; j++) {
-    if (j % 2 === 0) {
+    if (j % 2 !== 0) {
         continue;
     }
     console.log(j);
 }
 
+const multiplier = 7;
 for (let k = 1; k <= 10; k++) {
-    console.log(`7 * ${k} = ${7 * k}`);
+    console.log(`${multiplier} * ${k} = ${multiplier * k}`);
 }
 
 const n = 15;
-for (let m = 1; m < 100; m++) {
-    if (m >= n) {
+let count = 1;
+while (true) {
+    if (count >= n) {
         break;
     }
-    console.log(m);
+    console.log(count);
+    count++;
 }
 
-let counter = 1;
-while (counter <= 20) {
-    if (counter % 3 === 0) {
-        counter++;
+let m = 1;
+while (m <= 20) {
+    if (m % 3 === 0) {
+        m++;
         continue;
     }
-    console.log(counter);
-    counter++;
+    console.log(m);
+    m++;
 }
