@@ -1,4 +1,4 @@
-// 1. Симуляція вибору зі списку
+// 1.
 let drink = "Сік";
 switch (drink) {
     case "Кава":
@@ -14,7 +14,7 @@ switch (drink) {
         console.log("Вибір не визначено");
 }
 
-// 2. Перевірка дня тижня
+// 2.
 let day = "субота";
 switch (day.toLowerCase()) {
     case "понеділок":
@@ -32,7 +32,7 @@ switch (day.toLowerCase()) {
         console.log("Невірний день тижня");
 }
 
-// 3. Визначення пори року за номером місяця
+// 3.
 let month = 4;
 switch (month) {
     case 12:
@@ -59,7 +59,7 @@ switch (month) {
         console.log("Невірний номер місяця");
 }
 
-// 4. Повідомлення за кольором
+// 4.
 let color = "жовтий";
 switch (color.toLowerCase()) {
     case "червоний":
@@ -75,7 +75,7 @@ switch (color.toLowerCase()) {
         console.log("невідомий колір");
 }
 
-// 5. Калькулятор з перевіркою ділення на нуль
+// 5.
 let num1 = 10;
 let num2 = 0;
 let operator = "/";
