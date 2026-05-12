@@ -1,47 +1,40 @@
-// 1.
+// 1. Деструктуризація елементів масиву
 const numbers = [5, 20, 15];
-numbers[1] = 10;
+const [firstNum, , thirdNum] = numbers; // Пропуск другого елемента
+const updatedNumbers = [firstNum, 10, thirdNum]; // Створення нового з оновленим 2-м елементом
 
-// 2.
+// 2. Використання rest/spread
 const strings = ["Apple", "Banana", "Orange"];
-strings[strings.length] = "Grape";
+const updatedStrings = [...strings, "Grape"];
 
-// 3.
+// 3. Деструктуризація перших елементів
 const myNumbers = [10, 20, 30, 40];
-let sum = 0;
-for (let i = 0; i < myNumbers.length; i += 1) {
-  sum += myNumbers[i];
-}
-console.log(sum);
+const [n1, n2, n3, n4] = myNumbers;
+console.log(n1 + n2 + n3 + n4); // 100
 
-// 4.
+// 4. Часткова деструктуризація (оператор ...)
 const items = [1, 2, 3, 4, 5];
-for (let i = 0; i < items.length; i += 1) {
-  console.log(items[i]);
-}
+const [firstItem, secondItem, ...restItems] = items;
+console.log(`Перші: ${firstItem}, ${secondItem}. Решта: ${restItems}`);
 
-// 5.
+// 5. Деструктуризація властивості length з рядка
 const words = ["JavaScript", "HTML", "CSS", "React", "Frontend"];
-for (let i = 0; i < words.length; i += 1) {
-  if (words[i].length > 5) {
-    console.log(words[i]);
-  }
+for (const word of words) {
+  const { length } = word; 
+  if (length > 5) console.log(word);
 }
 
-// 6.
+// 6. 
 const values = [12, 45, 2, 89, 34, 67, 23, 90, 11, 5];
-let max = values[0];
-for (let i = 1; i < values.length; i += 1) {
-  if (values[i] > max) {
-    max = values[i];
-  }
+const [firstVal, ...otherVals] = values; // Розпакування
+let max = firstVal;
+for (const val of otherVals) {
+  if (val > max) max = val;
 }
-console.log(max);
+console.log("Максимум:", max);
 
 // 7.
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-for (let i = 0; i < data.length; i += 1) {
-  if (data[i] % 2 === 0) {
-    console.log(data[i]);
-  }
+for (const item of data) {
+  if (item % 2 === 0) console.log(item);
 }

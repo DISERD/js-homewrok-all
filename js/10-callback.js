@@ -2,9 +2,7 @@
 const countItems = (array, condition) => {
   let count = 0;
   for (const element of array) {
-    if (condition(element)) {
-      count += 1;
-    }
+    if (condition(element)) count += 1;
   }
   return count;
 };
@@ -12,13 +10,7 @@ const countItems = (array, condition) => {
 const numbers = [1, 5, 8, 12, 3, 15, 7, 20];
 const words = ['кіт', 'собака', 'миша', 'папуга', 'хомяк'];
 
-const isEven = num => num % 2 === 0;
-const isLarge = num => num > 10;
-const isShort = word => word.length <= 3;
-
-console.log('--- Завдання 1 ---');
-console.log('Парних чисел:', countItems(numbers, isEven));
-console.log('Чисел більше 10:', countItems(numbers, isLarge));
+const isShort = ({ length }) => length <= 3; 
 console.log('Коротких слів:', countItems(words, isShort));
 
 
@@ -62,7 +54,7 @@ repeatMessage(5, value => {
 console.log('Згенеровані ID:', labels);
 
 
-// 4.
+// 4. Обробка масиву об'єктів
 const processMovies = (movies, action) => {
   for (let i = 0; i < movies.length; i++) {
     action(movies[i], i);
@@ -75,25 +67,20 @@ const myMovies = [
   { title: 'Дюна', rating: 8.0, genre: 'Пригоди' }
 ];
 
-// 1)
-const showTitleUpper = (movie, index) => {
-  console.log(`${index + 1}. Фільм: ${movie.title.toUpperCase()}`);
+const showTitleUpper = ({ title }, index) => {
+  console.log(`${index + 1}. Фільм: ${title.toUpperCase()}`);
 };
 
-// 2)
-const checkRating = movie => {
-  const status = movie.rating > 8.5 ? '🔥 Хіт' : '👍 Хороший';
-  console.log(`${movie.title}: ${status} (${movie.rating})`);
+const checkRating = ({ title, rating }) => {
+  const status = rating > 8.5 ? '🔥 Хіт' : '👍 Хороший';
+  console.log(`${title}: ${status} (${rating})`);
 };
 
-// 3)
-const logShortInfo = (movie) => {
-  console.log(`Жанр "${movie.genre}" — це про фільм "${movie.title}"`);
+const logShortInfo = ({ title, genre }) => {
+  console.log(`Жанр "${genre}" — це про фільм "${title}"`);
 };
 
 console.log('\n--- Завдання 4 ---');
 processMovies(myMovies, showTitleUpper);
-console.log('---');
 processMovies(myMovies, checkRating);
-console.log('---');
 processMovies(myMovies, logShortInfo);
